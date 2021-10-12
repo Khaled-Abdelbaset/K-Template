@@ -1,3 +1,4 @@
+$mainColor: #2296f4;
 $secColor: #292929;
 $backGroundColor: #ececec;
 $mainPadding: 15px;
@@ -121,6 +122,7 @@ nav {
         }
         &:hover {
           .links {
+
             animation: sec-minu 350ms linear forwards;
             transform: rotateX(0deg);
           }
