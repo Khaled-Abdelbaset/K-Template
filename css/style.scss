@@ -1,9 +1,9 @@
-$mainColor: #2296f4;
-$secColor: #292929;
-$backGroundColor: #ececec;
+$mainColor: #2296F4;
+$secColor: #444444;
+$backGroundColor: #ECECEC;
 $mainPadding: 15px;
 
-// Feature Colors
+// Feature Vars
 $color1: #ff6262;
 $color2: #008e60;
 $color3: #0090d4;
@@ -17,7 +17,7 @@ $color3: #0090d4;
   bottom: 15px;
   right: 15px;
   font-size: 25px;
-  animation: top 0.5s alternate linear infinite;
+  animation: top .5s alternate linear infinite;
   i {
     color: $mainColor;
   }
@@ -29,8 +29,10 @@ nav {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     align-items: center;
     .logo {
+      font-size: 26px;
+      padding: 10px 0;
+      letter-spacing: 1px;
       a {
-        font-size: 24px;
         font-weight: 700;
         color: $mainColor;
       }
@@ -39,14 +41,11 @@ nav {
       display: flex;
       justify-self: flex-end;
       li {
-        z-index: 1;
         a {
           display: block;
           color: $secColor;
-          padding: 10px;
-          font-size: 15px;
+          padding: 20px 10px;
           position: relative;
-          transition: all 0.35s ease-in-out;
           &::before,
           &::after {
             content: "";
@@ -54,12 +53,11 @@ nav {
             top: 0;
             left: 0;
             width: 0%;
-            transition: all 0.35s ease-in-out;
-            z-index: -1;
+            transition: all .35s ease-in-out;
           }
           &::before {
             background-color: #e0e0e0b7;
-            opacity: 0.3;
+            opacity: .3;
             height: 100%;
           }
           &::after {
@@ -67,6 +65,7 @@ nav {
             background-color: $mainColor;
           }
           &:hover {
+            font-weight: bold;
             color: $mainColor;
             &::before,
             &::after {
@@ -77,7 +76,7 @@ nav {
       }
       .sec-links {
         .links {
-          background-color: #fff;
+          background-color: #FFF;
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
           gap: 25px;
@@ -109,6 +108,8 @@ nav {
                 a {
                   color: $mainColor;
                   font-weight: 700;
+                  padding: 10px;
+                  font-size: 14px;
                   &::after {
                     display: none;
                   }
@@ -122,7 +123,6 @@ nav {
         }
         &:hover {
           .links {
-
             animation: sec-minu 350ms linear forwards;
             transform: rotateX(0deg);
           }
@@ -130,6 +130,9 @@ nav {
       }
     }
     @media (max-width: 767px) {
+      .logo {
+        font-size: 36px;
+      }
       .logo,
       .main-links {
         justify-self: center;
@@ -164,7 +167,7 @@ header {
   overflow: hidden;
   z-index: 0;
   .container {
-    height: 87vh;
+    min-height: 90vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     column-gap: 25px;
@@ -172,9 +175,11 @@ header {
     .text {
       h1 {
         margin: 0;
+        font-size: 30px;
       }
       p {
         color: $secColor;
+        font-size: 18px;
       }
     }
     figure {
@@ -183,9 +188,13 @@ header {
         animation: header-image 1s linear alternate infinite;
       }
     }
+    position: relative;
     a {
-      grid-column: 1 / 4;
-      animation: header-arrow 0.6s linear alternate infinite;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      animation: header-arrow .6s linear alternate infinite;
       display: block;
       text-align: center;
       color: $mainColor;
@@ -202,9 +211,9 @@ header {
     }
     @media (max-width: 991px) {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      h1 {
-        font-size: 1.8em;
-      }
+      // h1 {
+      //   // font-size: 1.8em;
+      // }
     }
   }
   &::before {
@@ -230,9 +239,10 @@ header {
       gap: 25px 25px;
       align-items: center;
       .item {
-        box-shadow: -5px 5px 8px 0px #d7d7d7a6, 5px 5px 8px 0px #d7d7d7a6;
+        box-shadow: -5px 5px 8px 0px #d7d7d7a6,
+        5px 5px 8px 0px #d7d7d7a6;
         border-radius: 5px;
-        transition: all 0.3s ease-in-out;
+        transition: all .3s ease-in-out;
         figure {
           img {
             border-radius: 5px 5px 0 0;
@@ -241,6 +251,9 @@ header {
         .text {
           padding: 15px;
           border-bottom: 2px solid #d7d7d7a6;
+          h4 {
+            font-size: 20px;
+          }
           p {
             color: $secColor;
           }
@@ -257,7 +270,7 @@ header {
         &:hover {
           transform: translateY(-10px);
           i {
-            animation: article-arrow 0.7s linear alternate infinite;
+            animation: article-arrow .7s linear alternate infinite ;
           }
         }
       }
@@ -277,7 +290,7 @@ header {
         overflow: hidden;
         text-align: center;
         position: relative;
-        border: 15px solid #fff;
+        border: 15px solid #FFF;
         &::before {
           content: "";
           @extend %p-center;
@@ -288,14 +301,14 @@ header {
           z-index: 9999;
         }
         img {
-          transition: all 0.5s ease-in-out;
+          transition: all .5s ease-in-out;
         }
         &:hover {
           img {
             transform: scale(1.07) rotate(2deg);
           }
           &::before {
-            animation: image-fill 0.3s ease-out;
+            animation: image-fill .3s ease-out;
           }
         }
       }
@@ -314,7 +327,7 @@ header {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
       .item {
-        border: 2px solid #ddd;
+        border: 2px solid #DDD;
         text-align: center;
         figure {
           overflow: hidden;
@@ -326,7 +339,7 @@ header {
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.5;
+            opacity: .5;
           }
           &::after {
             content: "";
@@ -335,19 +348,19 @@ header {
             bottom: 0;
             border-style: solid;
             border-width: 0px 0px 120px 520px;
-            border-color: transparent transparent #fff transparent;
-            transition: all 0.3s linear;
+            border-color: transparent transparent #FFF transparent;
+            transition: all .3s linear;
           }
         }
         &:hover {
-          figure {
+          figure{
             &::after {
               border-width: 0px 520px 180px 0px;
             }
           }
         }
         .text {
-          padding: 0 25px;
+          padding:0 25px;
           h3 {
             position: relative;
             font-size: 24px;
@@ -358,7 +371,7 @@ header {
               position: absolute;
               bottom: -5px;
               left: 50%;
-              transform: translateX(-50%);
+              transform:translateX(-50%);
               height: 3px;
               width: 75%;
             }
@@ -414,9 +427,9 @@ header {
           border-radius: 5px;
           font-weight: bold;
           position: relative;
-          transition: 0.35s ease-in-out;
+          transition: .35s ease-in-out;
           &::before {
-            transition: 0.35s ease-in-out;
+            transition: .35s ease-in-out;
             content: "";
             position: absolute;
             top: 0;
@@ -426,12 +439,13 @@ header {
             z-index: -1;
           }
           &:hover {
-            color: #fff;
+            color: #FFF;
             &::before {
               width: 100%;
             }
           }
         }
+        
       }
     }
   }
@@ -443,10 +457,10 @@ header {
     .content {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px 30px;
+      gap: 25px 25px;
       align-items: center;
       .item {
-        background-color: #fff;
+        background-color: #FFF;
         position: relative;
         padding: 20px;
         figure {
@@ -461,21 +475,24 @@ header {
           }
         }
         h4 {
-          font-size: 18px;
+          font-size: 20px;
         }
         .job {
           color: #8d8c8c;
         }
         .stars {
+          padding: 5px 0;
           i {
-            color: #ffd700;
+            font-size: 14px;
+            color: #FFD700;
             &:last-child {
-              color: #aaa;
+              color: #AAA;
             }
           }
         }
         .text {
           color: $secColor;
+          font-size: 15px;
         }
       }
     }
@@ -504,7 +521,7 @@ header {
             a {
               color: #777676;
               margin-bottom: 20px;
-              transition: all 0.2s ease-in-out;
+              transition: all .2s ease-in-out;
               &:hover {
                 color: $mainColor;
               }
@@ -513,10 +530,13 @@ header {
         }
         .text {
           color: $secColor;
-          padding: 25px 25%;
+          padding: 25px 0 25px calc(15% + 25px);
           h4 {
             color: $mainColor;
-            transition: all 0.3s ease-in-out;
+            transition: all .3s ease-in-out;
+          }
+          p {
+            color: $secColor;
           }
         }
         &::before {
@@ -525,7 +545,7 @@ header {
           top: 0;
           right: 0;
           height: 100%;
-          width: 80%;
+          width: 85%;
           background-color: $backGroundColor;
           border-radius: 10px;
           z-index: -1;
@@ -537,11 +557,11 @@ header {
           right: 0;
           height: 100%;
           width: 0%;
-          opacity: 0.2;
+          opacity: .2;
           border-radius: 10px;
           background-color: $secColor;
           z-index: -1;
-          transition: all 0.3s ease-in-out;
+          transition: all .3s ease-in-out;
         }
         &:hover {
           img {
@@ -551,7 +571,7 @@ header {
             color: $secColor;
           }
           &::after {
-            width: 80%;
+            width: 85%
           }
         }
       }
@@ -570,8 +590,8 @@ header {
       counter-reset: counter;
       .item {
         box-shadow: 0px 5px 8px 0px #c4c4c4;
-        background-color: #fff;
-        transition: all 0.3s ease-in-out;
+        background-color: #FFF;
+        transition: all .3s ease-in-out;
         position: relative;
         .serv {
           padding: 25px;
@@ -592,7 +612,7 @@ header {
           background-color: hsla(0, 0%, 96%, 0.7);
           p {
             padding: 5px 15px;
-            color: #fff;
+            color: #FFf;
             z-index: 9999;
             position: relative;
             height: 35px;
@@ -617,11 +637,7 @@ header {
               width: 80px;
               height: 100%;
               transform: skewX(-45deg);
-              background-image: linear-gradient(
-                to right,
-                $mainColor 50%,
-                #ddd 50%
-              );
+              background-image: linear-gradient(to right, $mainColor 50%, #DDD 50%);
               z-index: -1;
             }
           }
@@ -640,7 +656,7 @@ header {
           width: 0%;
           height: 3px;
           background-color: $mainColor;
-          transition: all 0.3s ease-in-out;
+          transition: all .3s ease-in-out;
         }
         &::after {
           left: 50%;
@@ -679,7 +695,7 @@ header {
             font-weight: bold;
             line-height: 1;
             color: $mainColor;
-            border: 1px solid #bbb;
+            border: 1px solid #BBB;
             border-radius: 4px;
           }
           &::before,
@@ -748,7 +764,7 @@ header {
         padding: 20px;
         margin-bottom: 25px;
         background-color: #f3f3f3ec;
-        border: 2px solid #fff;
+        border: 2px solid #FFF;
         position: relative;
         figure {
           @extend %f-center;
@@ -764,7 +780,7 @@ header {
           height: 0%;
           background-color: #999999d7;
           z-index: -1;
-          transition: all 0.5s ease-in-out;
+          transition: all .5s ease-in-out;
         }
         &:hover {
           &::before {
@@ -779,6 +795,10 @@ header {
         }
         .work {
           grid-column: 1 / 4;
+          .item {
+            flex-direction: column;
+            text-align: center;
+          }
         }
       }
     }
@@ -798,18 +818,18 @@ header {
       figure {
         text-align: center;
       }
-      .time {
+      .time{
         text-align: center;
         .counter {
           @extend %f-center;
           > div {
             @extend %f-center;
             flex-direction: column;
-            border: 1px solid #bbb;
+            border: 1px solid #BBB;
             margin-right: 4px;
             margin-left: 4px;
             border-radius: 4px;
-            transition: all 0.25s ease-in-out;
+            transition: all .25s ease-in-out;
             p {
               width: 50px;
               &:first-child {
@@ -818,11 +838,11 @@ header {
                 color: #0098d4;
               }
               &:last-child {
-                border-top: 1px solid #bbb;
+                border-top: 1px solid #BBB;
                 padding: 5px;
                 font-size: 11px;
                 color: #585858;
-                transition: all 0.25s ease-in-out;
+                transition: all .25s ease-in-out;
               }
             }
             &:hover {
@@ -840,7 +860,7 @@ header {
             margin-bottom: 20px;
           }
           p {
-            color: #585858;
+            color: #585858 ;
           }
         }
       }
@@ -859,7 +879,7 @@ header {
         padding: 10px;
         border-radius: 20px;
         border: none;
-        font-size: 14px;
+        font-size: 13px;
         caret-color: $mainColor;
         &::placeholder {
           color: $mainColor;
@@ -869,7 +889,7 @@ header {
           color: $mainColor;
           &::placeholder {
             opacity: 0;
-            transition: all 0.3s ease-in-out;
+            transition: all .3s ease-in-out;
           }
         }
       }
@@ -877,7 +897,7 @@ header {
         display: block;
         height: 40px;
         background-color: $mainColor;
-        color: #fff;
+        color: #FFF;
         padding: 10px;
         border-radius: 20px;
         font-size: 14px;
@@ -907,13 +927,14 @@ header {
         }
       }
       .search {
+        padding: 10px;
         width: 100%;
         border-radius: 0;
         flex-direction: column;
-        input {
+        input{
           width: 100%;
           border-radius: 0;
-          margin: 0 0 20px 0;
+          margin: 0 0 10px 0;
         }
         a {
           width: 100%;
@@ -949,7 +970,7 @@ header {
       gap: 20px 20px;
       align-items: center;
       .item {
-        background-color: #fff;
+        background-color: #FFF;
         box-shadow: 0px 5px 8px 0px #c4c4c4;
         position: relative;
         z-index: 1;
@@ -984,7 +1005,7 @@ header {
             padding: 8px;
             font-size: 14px;
             font-weight: bold;
-            color: #fff;
+            color: #FFF;
             background-color: $mainColor;
             text-align: left;
             line-height: 1;
@@ -996,7 +1017,7 @@ header {
               top: 0;
               border-style: solid;
               border-width: 15px;
-              border-color: transparent #fff transparent transparent;
+              border-color: transparent #FFF transparent transparent;
             }
           }
         }
@@ -1023,10 +1044,10 @@ header {
           color: $mainColor;
           font-size: 14px;
           font-weight: bold;
-          transition: all 0.3s ease-in-out;
+          transition: all .3s ease-in-out;
           &:hover {
             background-color: $mainColor;
-            color: #fff;
+            color: #FFF;
           }
         }
         &::before,
@@ -1038,7 +1059,7 @@ header {
           height: 50%;
           background-color: #a7a7a721;
           background-color: #e2e2e257;
-          transition: all 0.5s ease-in-out;
+          transition: all .5s ease-in-out;
           z-index: -1;
         }
         &::after {
@@ -1086,7 +1107,7 @@ header {
               padding: 10px;
               font-size: 14px;
               color: $secColor;
-              transition: all 0.25s ease-in-out;
+              transition: all .25s ease-in-out;
               p {
                 color: #8d8c8c;
                 font-size: 13px;
@@ -1109,7 +1130,7 @@ header {
         flex-direction: column;
         justify-content: space-between;
         p {
-          background-color: #fff;
+          background-color: #FFF;
           padding: 10px;
           font-size: 14px;
           margin-top: 8px;
@@ -1170,7 +1191,7 @@ header {
           height: 0%;
           width: 2px;
           background-color: $mainColor;
-          transition: all 0.7s ease-out;
+          transition: all .7s ease-out;
         }
         &::before {
           top: 0;
@@ -1189,18 +1210,21 @@ header {
       }
     }
   }
+
 }
 .discount {
   .content {
     display: flex;
+    > div {
+      flex-basis: 50%;
+    }
     .image {
       height: 100vh;
-      flex-basis: 50%;
       background: url("../images/discount-1.png") center center/cover;
-      transition: all 0.7s ease-in-out;
+      transition: all .7s ease-in-out;
       position: relative;
       z-index: 1;
-      color: #fff;
+      color: #FFF;
       @extend %f-center;
       flex-direction: column;
       text-align: center;
@@ -1220,7 +1244,7 @@ header {
         width: 100%;
         height: 100%;
         background-color: #0776d8;
-        opacity: 0.8;
+        opacity: .8;
         z-index: -1;
       }
       &:hover {
@@ -1228,15 +1252,13 @@ header {
       }
     }
     .form {
-      flex-basis: 50%;
       @extend %f-center;
       flex-direction: column;
-      margin: auto;
       h3 {
         font-size: 30px;
         margin: 20px 0;
       }
-      .in {
+      .input {
         position: relative;
         margin-bottom: 20px;
         &::before {
@@ -1247,7 +1269,7 @@ header {
           width: 100%;
           height: 0px;
           background-color: $mainColor;
-          transition: all 0.3s ease-out;
+          transition: all .3s ease-out;
           z-index: 999;
         }
         &:hover {
@@ -1271,7 +1293,7 @@ header {
           outline: none;
           &::placeholder {
             opacity: 0;
-            transition: all 0.3s ease-in-out;
+            transition: all .3s ease-in-out;
           }
         }
       }
@@ -1285,15 +1307,14 @@ header {
         background-color: $mainColor;
         border: none;
         border-radius: 3px;
-        color: #fff;
+        color: #FFF;
         font-weight: bold;
+        
       }
     }
     @media (max-width: 991px) {
-      // grid-template-columns: repeat(2, minmax(360px, 1fr));
       flex-direction: column;
       .image {
-        flex-basis: 100%;
         h2 {
           margin: 30px;
         }
@@ -1304,9 +1325,6 @@ header {
           margin: 50px;
         }
       }
-      // .form {
-      //   flex-basis: 100%;
-      // }
     }
   }
 }
@@ -1315,7 +1333,7 @@ footer {
   .container {
     padding-top: 30px;
     padding-bottom: 30px;
-    color: #fff;
+    color: #FFF;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px 25px;
@@ -1329,7 +1347,7 @@ footer {
         a {
           font-size: 28px;
           font-weight: 700;
-          color: #fff;
+          color: #FFF;
         }
       }
       .social {
@@ -1339,7 +1357,7 @@ footer {
           background-color: #313131;
           margin-right: 5px;
           color: #b2b2b2;
-          transition: all 0.4s ease-in-out;
+          transition: all .4s ease-in-out;
           i {
             width: 40px;
             height: 40px;
@@ -1362,21 +1380,21 @@ footer {
           }
         }
       }
+      
     }
     .links {
       ul {
         li {
-          transition: all 0.3s ease-in-out;
-          transition: all 0.3s ease-in-out;
+          transition: all .3s ease-in-out;
           &:not(:last-child) {
-            border-bottom: 1px solid #b2b2b265;
+            border-bottom: 1px solid #444;
           }
           a {
             display: block;
             padding: 10px;
             color: #b2b2b2;
             font-size: 13px;
-            transition: all 0.3s ease-in-out;
+            transition: all .3s ease-in-out;
             i {
               color: $mainColor;
               font-size: 12px;
@@ -1399,7 +1417,9 @@ footer {
       div {
         display: flex;
         align-items: center;
-        margin-bottom: 25px;
+        &:not(:last-child) {
+          margin-bottom: 25px;
+        }
       }
       i {
         color: $mainColor;
@@ -1408,23 +1428,40 @@ footer {
       }
     }
     .insta {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-      gap: 10px 10px;
-      figure {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: space-between;
+      gap: 15px 15px;
+      figure{
+        width: 75px;
         img {
-          border: 2px solid #fff;
+          border: 2px solid #FFF;
+        }
+      }
+    }
+    @media (max-width: 991px) {
+      .about {
+        text-align: center;
+      }
+      .contact {
+        div {
+          flex-direction: column;
+          i {
+            margin-bottom: 5px;
+          }
         }
       }
     }
   }
   .end {
-    border-top: 1px solid #b2b2b26c;
+    border-top: 1px solid #333;
     padding: 15px;
-    color: #b2b2b2;
+    color:  #b2b2b2;
     text-align: center;
     font-size: 14px;
   }
+
 }
 
 .head {
@@ -1465,14 +1502,14 @@ footer {
     }
     &:hover {
       border-color: $mainColor;
-      color: #fff;
-      transition: all 0.1s 0.3s ease-in-out;
+      color: #FFF;
+      transition: all .1s .3s ease-in-out;
       &::before {
-        animation: left-bullets 0.3s ease-in forwards;
+        animation: left-bullets .3s ease-in forwards;
         z-index: -1;
       }
       &::after {
-        animation: right-bullets 0.3s ease-in forwards;
+        animation: right-bullets .3s ease-in forwards;
         z-index: -1;
       }
     }
@@ -1498,12 +1535,7 @@ footer {
     bottom: calc(100% - 20px);
     height: 20px;
     background-size: 20px;
-    background-image: linear-gradient(
-        315deg,
-        $backGroundColor 25%,
-        transparent 25%
-      ),
-      linear-gradient(45deg, $backGroundColor 25%, transparent 25%);
+    background-image: linear-gradient(315deg, $backGroundColor 25%, transparent 25%), linear-gradient(45deg, $backGroundColor 25%, transparent 25%);
     z-index: -2;
   }
 }
