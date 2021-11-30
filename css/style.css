@@ -936,6 +936,8 @@ header::before {
 }
 
 .team .container .content .item:hover img {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }
