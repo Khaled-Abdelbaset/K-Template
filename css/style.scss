@@ -577,6 +577,7 @@ header {
         }
         &:hover {
           img {
+            transition: all .3s ease-in-out;
             filter: grayscale(100%);
           }
           h4 {
