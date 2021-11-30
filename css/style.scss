@@ -1,5 +1,5 @@
 $mainColor: #2296F4;
-$secColor: #444444;
+$secColor: #444;
 $backGroundColor: #ECECEC;
 $mainPadding: 15px;
 
@@ -59,10 +59,12 @@ nav {
             background-color: #e0e0e0b7;
             opacity: .3;
             height: 100%;
+            z-index: -1;
           }
           &::after {
             height: 10%;
             background-color: $mainColor;
+            z-index: -1;
           }
           &:hover {
             font-weight: bold;
@@ -166,8 +168,9 @@ header {
   position: relative;
   overflow: hidden;
   z-index: 0;
+  background: url("../images/header-background.jpg") center center/cover;
   .container {
-    min-height: 90vh;
+    min-height: 93vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     column-gap: 25px;
@@ -211,9 +214,6 @@ header {
     }
     @media (max-width: 991px) {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      // h1 {
-      //   // font-size: 1.8em;
-      // }
     }
   }
   &::before {
@@ -221,12 +221,15 @@ header {
     position: absolute;
     left: 0px;
     bottom: 0px;
-    right: 0px;
-    top: 0px;
-    background-color: $backGroundColor;
-    width: 100%;
-    transform: skewY(-9deg);
-    transform-origin: top left;
+    border-style: solid;
+    border-width: 0px 0px 300px 2000px;
+    border-color: transparent transparent #FFF transparent;
+    // right: 0px;
+    // top: 0px;
+    // background-color: #FFF;
+    // width: 100%;
+    // transform: skewY(-9deg);
+    // transform-origin: top left;
     z-index: -1;
   }
 }
@@ -279,6 +282,7 @@ header {
 }
 .gallery {
   @extend %background;
+  background: url("../images/gallery-background.jpg") center center/cover;
   .container {
     @extend %containerPadding;
     .album {
@@ -352,13 +356,6 @@ header {
             transition: all .3s linear;
           }
         }
-        &:hover {
-          figure{
-            &::after {
-              border-width: 0px 520px 180px 0px;
-            }
-          }
-        }
         .text {
           padding:0 25px;
           h3 {
@@ -374,6 +371,7 @@ header {
               transform:translateX(-50%);
               height: 3px;
               width: 75%;
+              transition: all .3s ease-in-out;
             }
           }
           p {
@@ -445,19 +443,31 @@ header {
             }
           }
         }
-        
+        &:hover {
+          figure{
+            &::after {
+              border-width: 0px 520px 180px 0px;
+            }
+          }
+          h3 {
+            &::before {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
 }
 .testimonials {
   @extend %background;
+  background: url("../images/testimonials-background.jpg") center center/cover;
   .container {
     @extend %containerPadding;
     .content {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 25px 25px;
+      gap: 35px 20px;
       align-items: center;
       .item {
         background-color: #FFF;
@@ -466,11 +476,13 @@ header {
         figure {
           position: absolute;
           top: -25px;
-          right: 0;
+          // right: 0;
+          right: 5px;
           width: 50px;
           height: 50px;
           img {
-            outline: 5px solid $backGroundColor;
+            // outline: 5px solid $backGroundColor;
+            outline: 5px solid #FFF;
             border-radius: 50%;
           }
         }
@@ -575,11 +587,44 @@ header {
           }
         }
       }
+      @media (max-width: 767px) {
+        .item {
+          padding-top: 0;
+          .image {
+            padding: 15px 15px 10px;
+            flex-direction: column;
+            .social {
+              flex-direction: row;
+              align-items: center;
+              margin: 0;
+              padding-top: 15px;
+              a {
+                margin-bottom: 0;
+                padding-right: 15px;
+              }
+            }
+          }
+          .text {
+            border-top: 1px solid #5e5e5e28;
+            padding: 10px 15px 15px;
+            text-align: center;
+          }
+          &::before {
+            width: 100%
+          }
+          &:hover {
+            &::after {
+              width: 100%
+            }
+          }
+        }
+      }
     }
   }
 }
 .services {
   @extend %background;
+  background: url("../images/services-background.jpg") center center/cover;
   .container {
     @extend %containerPadding;
     .content {
@@ -746,6 +791,7 @@ header {
 }
 .how-works {
   @extend %background;
+  background: url("../images/how-works-background.jpg") center center/cover;
   .container {
     @extend %containerPadding;
     .content {
@@ -766,19 +812,20 @@ header {
         background-color: #f3f3f3ec;
         border: 2px solid #FFF;
         position: relative;
+        z-index: 1;
         figure {
           @extend %f-center;
           margin: 20px;
         }
         p {
-          color: #585858;
+          color: $secColor;
         }
         &::before {
           content: "";
           @extend %p-center;
           width: 0%;
           height: 0%;
-          background-color: #999999d7;
+          background-color: #9999991e;
           z-index: -1;
           transition: all .5s ease-in-out;
         }
@@ -834,8 +881,8 @@ header {
               width: 50px;
               &:first-child {
                 padding: 8px;
-                font-size: 25px;
-                color: #0098d4;
+                font-size: 23px;
+                color: $mainColor;
               }
               &:last-child {
                 border-top: 1px solid #BBB;
@@ -860,7 +907,8 @@ header {
             margin-bottom: 20px;
           }
           p {
-            color: #585858 ;
+            color: #585858;
+            color: $secColor;
           }
         }
       }
@@ -948,6 +996,7 @@ header {
 }
 .pricing {
   @extend %background;
+  background-color: $backGroundColor;
   position: relative;
   .right {
     position: absolute;
@@ -1343,8 +1392,15 @@ footer {
       line-height: 1.9;
     }
     .about {
-      .logo {
-        a {
+      .main-logo {
+        display: flex;
+        align-items: center;
+        img {
+          height: 32px;
+          width: 32px;
+        }
+        .logo {
+          padding-left: 10px;
           font-size: 28px;
           font-weight: 700;
           color: #FFF;
@@ -1464,6 +1520,7 @@ footer {
 
 }
 
+
 .head {
   a {
     font-size: 22px;
@@ -1478,6 +1535,7 @@ footer {
     width: fit-content;
     display: block;
     color: #000;
+    z-index: 1;
     &::before {
       content: "";
       position: absolute;
@@ -1517,15 +1575,26 @@ footer {
 }
 %background {
   position: relative;
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 20px;
+  //   left: 0;
+  //   background-color: $backGroundColor;
+  //   width: 100%;
+  //   height: calc(100% - 20px);
+  //   z-index: -2;
+  // }
   &::before {
     content: "";
     position: absolute;
-    top: 20px;
+    right: 0;
     left: 0;
-    background-color: $backGroundColor;
-    width: 100%;
-    height: calc(100% - 20px);
-    z-index: -2;
+    top: calc(100% - 20px);
+    height: 20px;
+    background-size: 20px;
+    background-image: linear-gradient(315deg, #FFF 25%, transparent 25%), linear-gradient(45deg, #FFF 25%, transparent 25%);
+    z-index: 1;
   }
   &::after {
     content: "";
@@ -1535,8 +1604,9 @@ footer {
     bottom: calc(100% - 20px);
     height: 20px;
     background-size: 20px;
-    background-image: linear-gradient(315deg, $backGroundColor 25%, transparent 25%), linear-gradient(45deg, $backGroundColor 25%, transparent 25%);
-    z-index: -2;
+    // background-image: linear-gradient(315deg, $backGroundColor 25%, transparent 25%), linear-gradient(45deg, $backGroundColor 25%, transparent 25%);
+    background-image: linear-gradient(135deg, #FFF 25%, transparent 25%), linear-gradient(225deg, #FFF 25%, transparent 25%);
+    z-index: 1;
   }
 }
 %containerPadding {
